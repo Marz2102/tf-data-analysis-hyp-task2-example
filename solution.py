@@ -1,9 +1,11 @@
 import pandas as pd
 import numpy as np
 from scipy.stats import anderson_ksamp
+from hyppo.ksample import Energy, MMD, DISCO
+from scipy.stats import laplace, norm, ks_2samp, cramervonmises_2samp
 
 
 chat_id = 682673597 # Ваш chat ID, не меняйте название переменной
 
 def solution(x: np.array, y: np.array) -> bool:
-    return anderson_ksamp([x, y]).pvalue < 0.08
+    return MMD(compute_kernel="rbf",gamma=1/10).test(x,y)[1] < 0.08
