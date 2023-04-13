@@ -7,7 +7,7 @@ chat_id = 682673597 # Ваш chat ID, не меняйте название пе�
 
 def solution(x: np.array, y: np.array) -> bool:
     statistic, critical_values, pvalue = anderson_ksamp([x, y])
-    p = 0.05
+    p = 0.08
     if statistic > critical_values[2]:
         return True
     else:
