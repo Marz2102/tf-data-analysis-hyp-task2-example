@@ -8,4 +8,4 @@ from scipy.stats import laplace, norm, ks_2samp, cramervonmises_2samp
 chat_id = 682673597 # Ваш chat ID, не меняйте название переменной
 
 def solution(x: np.array, y: np.array) -> bool:
-    return MMD(compute_kernel="rbf",gamma=1/10).test(x,y)[1] < 0.08
+    return MMD(compute_kernel="laplacian", gamma=1).test(sample1, sample2)[1] < 0.08
